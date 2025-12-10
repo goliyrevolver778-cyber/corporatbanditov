@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Список на корпоратив</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: #f5f5f7;
+            margin: 0;
+            padding: 20px;
+        }
+        .wrapper {
+            max-width: 520px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 16px 16px 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+        }
+        h1 {
+            font-size: 20px;
+            margin: 0 0 4px;
+            text-align: center;
+        }
+        .subtitle {
+            font-size: 13px;
+            color: #666;
+            text-align: center;
+            margin-bottom: 14px;
+        }
+        .legend {
+            font-size: 13px;
+            color: #555;
+            background: #f1f3f5;
+            border-radius: 10px;
+            padding: 8px 10px;
+            margin-bottom: 12px;
+        }
+        .legend b {
+            font-weight: 600;
+        }
+        .row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 6px;
+            border-bottom: 1px solid #eee;
+            gap: 8px;
+        }
+        .row:last-child {
+            border-bottom: none;
+        }
+        .name {
+            font-size: 15px;
+            flex: 1;
+            word-break: break-word;
+        }
+        .buttons {
+            display: flex;
+            gap: 6px;
+        }
+        button {
+            border-radius: 999px;
+            border: 1px solid #ddd;
+            padding: 5px 10px;
+            font-size: 14px;
+            cursor: pointer;
+            background: #fff;
+            min-width: 44px;
+        }
+        button:active {
+            transform: scale(0.98);
+        }
+        .btn-plus.active {
+            background: #e6ffe9;
+            border-color: #18a34a;
+            font-weight: 600;
+        }
+        .btn-minus.active {
+            background: #ffecec;
+            border-color: #dc2626;
+            font-weight: 600;
+        }
+        .footer-btns {
+            margin-top: 16px;
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .primary {
+            flex: 1;
+            background: #2563eb;
+            border-color: #2563eb;
+            color: #fff;
+            font-weight: 600;
+        }
+        .secondary {
+            background: #f3f4f6;
+        }
+        .note {
+            font-size: 11px;
+            color: #888;
+            margin-top: 8px;
+            text-align: center;
+        }
+        @media (max-width: 480px) {
+            .wrapper {
+                padding: 12px 10px 16px;
+            }
+            .name {
+                font-size: 14px;
+            }
+            button {
+                padding: 4px 8px;
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <h1>Кто идёт на корпоратив?</h1>
+    <div class="subtitle">Отметь напротив своего имени: плюс — иду, минус — не иду</div>
+    <div class="legend">
+        <b>Обозначения:</b> <br>
+        <b>+</b> — буду на корпоративе<br>
+        <b>−</b> — не получится прийти
+    </div>
+
+    <div id="list">
+        <!-- Список имён -->
+        <div class="row" data-name="Шланг">
+            <div class="name">Шланг</div>
+            <div class="buttons">
+                <button class="btn-plus">+</button>
+                <button class="btn-minus">−</button>
+            </div>
+        </div>
+        <div class="row" data-name="Космос">
+            <div class="name">Космос</div>
+            <div class="buttons">
+                <button class="btn-plus">+</button>
+                <button class="btn-minus">−</button>
+            </div>
+        </div>
+        <div class="row" data-name="Колыван">
+            <div class="name">Колыван</div>
+            <div class="buttons">
+                <button class="btn-plus">+</button>
+                <button class="btn-minus">−</button>
+            </div>
+        </div>
+        <div class="row" data-name="Монатик">
+            <div class="name">Монатик</div>
+            <div class="buttons">
+                <button class="btn-plus">+</button>
+                <button class="btn-minus">−</button>
+            </div>
+        </div>
+        <div class="row" data-name="Сатана">
+            <div class="name">Сатана</div>
+            <div class="buttons">
+                <button class="btn-plus">+</button>
+                <button class="btn-minus">−</button>
+            </div>
+        </div>
+        <div class="row" data-name="Илья">
+            <div class="name">Илья</div>
+            <div class="buttons">
+                <button class="btn-plus">+</button>
+                <button class="btn-minus">−</button>
+            </div>
+        </div>
+        <div class="row" data-name="Стуси">
+            <div class="name">Стуси</div>
+            <div class="buttons">
+                <button class="btn-plus">+</button>
+                <button class="btn-minus">−</button>
+            </div>
+        </div>
+        <div class="row" data-name="Полина">
+            <div class="name">Полина</div>
+            <div class="buttons">
+                <button class="btn-plus">+</button>
+                <button class="btn-minus">−</button>
+            </div>
+        </div>
+        <div class="row" data-name="Тянка">
+            <div class="name">Тянка</div>
+            <div class="buttons">
+                <button class="btn-plus">+</button>
+                <button class="btn-minus">−</button>
+            </div>
+        </div>
+        <div class="row" data-name="Кот">
+            <div class="name">Кот</div>
+            <div class="buttons">
+                <button class="btn-plus">+</button>
+                <button class="btn-minus">−</button>
+            </div>
+        </div>
+        <div class="row" data-name="Тоха айчар">
+            <div class="name">Тоха айчар</div>
+            <div class="buttons">
+                <button class="btn-plus">+</button>
+                <button class="btn-minus">−</button>
+            </div>
+        </div>
+        <div class="row" data-name="Лена айчар">
+            <div class="name">Лена айчар</div>
+            <div class="buttons">
+                <button class="btn-plus">+</button>
+                <button class="btn-minus">−</button>
+            </div>
+        </div>
+        <div class="row" data-name="Ваня айти">
+            <div class="name">Ваня айти</div>
+            <div class="buttons">
+                <button class="btn-plus">+</button>
+                <button class="btn-minus">−</button>
+            </div>
+        </div>
+        <div class="row" data-name="Ден айти">
+            <div class="name">Ден айти</div>
+            <div class="buttons">
+                <button class="btn-plus">+</button>
+                <button class="btn-minus">−</button>
+            </div>
+        </div>
+        <div class="row" data-name="Барби">
+            <div class="name">Барби</div>
+            <div class="buttons">
+                <button class="btn-plus">+</button>
+                <button class="btn-minus">−</button>
+            </div>
+        </div>
+        <div class="row" data-name="Гошан">
+            <div class="name">Гошан</div>
+            <div class="buttons">
+                <button class="btn-plus">+</button>
+                <button class="btn-minus">−</button>
+            </div>
+        </div>
+        <div class="row" data-name="Данил">
+            <div class="name">Данил</div>
+            <div class="buttons">
+                <button class="btn-plus">+</button>
+                <button class="btn-minus">−</button>
+            </div>
+        </div>
+        <div class="row" data-name="Влад">
+            <div class="name">Влад</div>
+            <div class="buttons">
+                <button class="btn-plus">+</button>
+                <button class="btn-minus">−</button>
+            </div>
+        </div>
+        <div class="row" data-name="Глеб">
+            <div class="name">Глеб</div>
+            <div class="buttons">
+                <button class="btn-plus">+</button>
+                <button class="btn-minus">−</button>
+            </div>
+        </div>
+        <div class="row" data-name="Ювелир">
+            <div class="name">Ювелир</div>
+            <div class="buttons">
+                <button class="btn-plus">+</button>
+                <button class="btn-minus">−</button>
+            </div>
+        </div>
+        <div class="row" data-name="Лиза">
+            <div class="name">Лиза</div>
+            <div class="buttons">
+                <button class="btn-plus">+</button>
+                <button class="btn-minus">−</button>
+            </div>
+        </div>
+        <div class="row" data-name="Зая">
+            <div class="name">Зая</div>
+            <div class="buttons">
+                <button class="btn-plus">+</button>
+                <button class="btn-minus">−</button>
+            </div>
+        </div>
+        <div class="row" data-name="Пуся">
+            <div class="name">Пуся</div>
+            <div class="buttons">
+                <button class="btn-plus">+</button>
+                <button class="btn-minus">−</button>
+            </div>
+        </div>
+        <div class="row" data-name="Кузя">
+            <div class="name">Кузя</div>
+            <div class="buttons">
+                <button class="btn-plus">+</button>
+                <button class="btn-minus">−</button>
+            </div>
+        </div>
+        <div class="row" data-name="Вика">
+            <div class="name">Вика</div>
+            <div class="buttons">
+                <button class="btn-plus">+</button>
+                <button class="btn-minus">−</button>
+            </div>
+        </div>
+        <div class="row" data-name="Капитан">
+            <div class="name">Капитан</div>
+            <div class="buttons">
+                <button class="btn-plus">+</button>
+                <button class="btn-minus">−</button>
+            </div>
+        </div>
+        <div class="row" data-name="Доберман">
+            <div class="name">Доберман</div>
+            <div class="buttons">
+                <button class="btn-plus">+</button>
+                <button class="btn-minus">−</button>
+            </div>
+        </div>
+        <div class="row" data-name="Сиджей">
+            <div class="name">Сиджей</div>
+            <div class="buttons">
+                <button class="btn-plus">+</button>
+                <button class="btn-minus">−</button>
+            </div>
+        </div>
+        <div class="row" data-name="Тимофей">
+            <div class="name">Тимофей</div>
+            <div class="buttons">
+                <button class="btn-plus">+</button>
+                <button class="btn-minus">−</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-btns">
+        <button class="primary" id="copyBtn">Скопировать результат</button>
+        <button class="secondary" id="clearBtn">Очистить мои ответы</button>
+    </div>
+    <div class="note">
+        Твои ответы сохраняются только в этом браузере.<br>
+        Можно скопировать итог и отправить организатору.
+    </div>
+</div>
+
+<script>
+    const STORAGE_KEY = "korporativ_votes_v1";
+
+    function loadState() {
+        try {
+            const raw = localStorage.getItem(STORAGE_KEY);
+            return raw ? JSON.parse(raw) : {};
+        } catch (e) {
+            return {};
+        }
+    }
+
+    function saveState(state) {
+        try {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+        } catch (e) {
+            // ignore
+        }
+    }
+
+    const state = loadState();
+
+    function updateRowUI(row, value) {
+        const plus = row.querySelector(".btn-plus");
+        const minus = row.querySelector(".btn-minus");
+        plus.classList.remove("active");
+        minus.classList.remove("active");
+
+        if (value === "+") plus.classList.add("active");
+        if (value === "-") minus.classList.add("active");
+    }
+
+    document.querySelectorAll(".row").forEach(row => {
+        const name = row.dataset.name;
+        if (state[name]) {
+            updateRowUI(row, state[name]);
+        }
+
+        const plusBtn = row.querySelector(".btn-plus");
+        const minusBtn = row.querySelector(".btn-minus");
+
+        plusBtn.addEventListener("click", () => {
+            const current = state[name];
+            state[name] = current === "+" ? null : "+";
+            if (!state[name]) delete state[name];
+            updateRowUI(row, state[name]);
+            saveState(state);
+        });
+
+        minusBtn.addEventListener("click", () => {
+            const current = state[name];
+            state[name] = current === "-" ? null : "-";
+            if (!state[name]) delete state[name];
+            updateRowUI(row, state[name]);
+            saveState(state);
+        });
+    });
+
+    document.getElementById("clearBtn").addEventListener("click", () => {
+        if (!confirm("Точно очистить твои ответы на этом устройстве?")) return;
+        Object.keys(state).forEach(k => delete state[k]);
+        saveState(state);
+        document.querySelectorAll(".row").forEach(row => updateRowUI(row, null));
+    });
+
+    document.getElementById("copyBtn").addEventListener("click", async () => {
+        const rows = document.querySelectorAll(".row");
+        let lines = [];
+        rows.forEach(row => {
+            const name = row.dataset.name;
+            const value = state[name] || "";
+            lines.push(`${name}: ${value}`);
+        });
+        const text = lines.join("\n");
+
+        try {
+            await navigator.clipboard.writeText(text);
+            alert("Скопировано в буфер обмена.\nМожешь вставить в чат/таблицу.");
+        } catch (e) {
+            // Фолбэк, если Clipboard API не сработает
+            const ta = document.createElement("textarea");
+            ta.value = text;
+            document.body.appendChild(ta);
+            ta.select();
+            document.execCommand("copy");
+            document.body.removeChild(ta);
+            alert("Скопировано (через резервный способ).\nМожешь вставить в чат/таблицу.");
+        }
+    });
+</script>
+</body>
+</html>
